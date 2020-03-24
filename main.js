@@ -1,11 +1,18 @@
 const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
+const amPmEl = document.getElementById('amorpm');
 
 const currentTime = new Date();
 const hours = currentTime.getHours();
 const minutes = currentTime.getMinutes();
 const seconds = currentTime.getSeconds();
+
+if (hours > 12) {
+    amPmEl.innerText = 'PM';
+} else {
+    amPmEl.innerText = 'AM';
+}
 
 if (hours <= 9) {
     hoursEl.innerText = '0' + hours;
@@ -30,6 +37,12 @@ setInterval(() => {
     let hours = currentTime.getHours();
     const minutes = currentTime.getMinutes();
     const seconds = currentTime.getSeconds();
+
+    if (hours > 12) {
+        amPmEl.innerText = 'PM';
+    } else {
+        amPmEl.innerText = 'AM';
+    }
 
     if (hours > 12) {
         hours = hours - 12;
