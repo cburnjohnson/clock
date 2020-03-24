@@ -4,7 +4,7 @@ const secondsEl = document.getElementById('seconds');
 const amPmEl = document.getElementById('amorpm');
 
 const currentTime = new Date();
-const hours = currentTime.getHours();
+let hours = currentTime.getHours();
 const minutes = currentTime.getMinutes();
 const seconds = currentTime.getSeconds();
 
@@ -12,6 +12,11 @@ if (hours > 12) {
     amPmEl.innerText = 'PM';
 } else {
     amPmEl.innerText = 'AM';
+}
+
+if (hours > 12) {
+    hours = hours - 12;
+    hoursEl.innerText = hours;
 }
 
 if (hours <= 9) {
